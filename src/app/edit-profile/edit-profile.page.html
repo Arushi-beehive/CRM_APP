@@ -59,29 +59,6 @@
             </p>
           </ion-text>
   </ion-col>
-  <ion-col size="12">
-<ion-item lines="none" class="border-box">
-    <ion-icon name="call-outline" slot="start"></ion-icon>
-    <ion-input type="tel" placeholder="Phone Number" formControlName="phone" inputmode="numeric" maxlength="10" (ionInput)="onlyDigits($event)" ></ion-input>
-  </ion-item>
-  <ion-text
-            color="danger"
-            *ngIf="editProfileForm.get('phone')?.touched && editProfileForm.get('phone')?.invalid"
-          >
-            <p
-              class="ion-padding-start"
-              *ngIf="editProfileForm.get('phone')?.errors?.['required']"
-            >
-              Phone number is required
-            </p>
-            <p
-              class="ion-padding-start"
-              *ngIf="editProfileForm.get('phone')?.errors?.['pattern']"
-            >
-              Enter a valid 10-digit phone number
-            </p>
-          </ion-text>
-  </ion-col>
 </ion-row>
 
   <h6 class="ion-margin-top" ><strong>Address</strong></h6>
@@ -117,23 +94,5 @@
 </ion-col>
 </ion-row>
 
-<h6 class="ion-margin-top" ><strong>About Me</strong></h6>
-<ion-row>
-  <ion-col size="12">
-  <ion-item lines="none" class="d-flex no-border-item border-box ion-align-items-start">
-    <ion-icon slot="start" name="document-text-outline"></ion-icon>
-    <ion-textarea
-      placeholder="Bio"
-      fill="clear"
-     
-      formControlName="bio"
-      class="no-border-textarea">
-    </ion-textarea>
-  </ion-item>
-</ion-col>
-<ion-col size="12">
-<ion-button pbutton type="submit" expand="block" >Save Changes</ion-button>
-</ion-col>
-</ion-row>
   </form>
 </ion-content>

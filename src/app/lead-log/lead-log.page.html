@@ -1,0 +1,33 @@
+<ion-toolbar color="primary" class="shadow-sm rounded-bottom">
+  <ion-grid>
+    <ion-row class="ion-align-items-center ion-justify-content-between">
+      <ion-col size="auto">
+        <div class="d-flex ion-align-items-center ion-justify-content-start">
+          <!-- <ion-img src="assets/Logo_only.png" alt="Logo" class="logo-sm" > -->
+          <ion-title size="small"> Lead Log </ion-title>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-toolbar>
+
+<ion-content>
+        <h4 class="ion-padding-start">Task #740</h4>
+  <ion-grid>
+     <ion-card *ngFor="let card of statusCards">
+    <ion-row *ngFor="let row of rowConfig" class="d-flex ion-align-items-start ion-padding-start">
+      <ion-col size="5">
+        <ion-label class="d-flex ion-justify-content-start ion-align-items-center">
+          <ion-icon size="small" [name]="row.icon"></ion-icon>
+          <span>{{row.label}}</span>
+        </ion-label>
+      </ion-col>
+      <ion-col size="7">
+        <span>:</span>
+        <ion-label>{{card[row.key] || '-'}}</ion-label>
+      </ion-col>
+    </ion-row>
+    </ion-card>
+  </ion-grid>
+  <ion-button type="button" class="ion-padding-start">Back</ion-button>
+</ion-content>

@@ -57,6 +57,10 @@ const routes: Routes = [
     path: 'edit-profile',
     loadChildren: () => import('./edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
   },
+  {
+    path: 'lead-log',
+    loadChildren: () => import('./lead-log/lead-log.module').then( m => m.LeadLogPageModule)
+  },
 
 
 

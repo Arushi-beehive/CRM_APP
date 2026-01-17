@@ -19,17 +19,11 @@ profileImage : string | null =null;
   editProfileForm = this.fb.group({
     fullName:['',[Validators.required]],
     email:['',[Validators.required,Validators.email,Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]],
-    phone:['',[Validators.required,Validators.pattern(/^[6-9]\d{9}$/)]],
     address:['',[Validators.required]],
     city:['',[Validators.required]],
     country:['',[Validators.required]],
     bio:['']
   });
-
- onlyDigits(event: any) {
-    const input = event.target;
-    input.value = input.value.replace(/[^0-9]/g, '').slice(0, 10);
-}
 
 async openActionSheet() {
  const actionSheet = await this.actionSheetCtrl.create({

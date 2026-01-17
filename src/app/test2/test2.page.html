@@ -20,14 +20,14 @@
   </ion-grid>
 </ion-toolbar>
 
-<ion-content>
+<ion-content class="ion-padding">
  <ion-grid>
   <ion-row>
-    <ion-col size="6">
+    <ion-col size="7">
       <ion-button size="small" expand="outline">Open</ion-button>
       <ion-button size="small" expand="outline">Urgent</ion-button>
     </ion-col>
-    <ion-col size="6" class="d-flex ion-justify-content-end">
+    <ion-col size="5" class="d-flex ion-justify-content-end">
       <ion-icon size="small" name="call-outline"></ion-icon>
       <ion-icon size="small" name="logo-whatsapp"></ion-icon>
       <ion-icon size="small" name="share-social-outline"></ion-icon>
@@ -50,28 +50,103 @@
       </ion-col>
     </ion-row>
     </ion-card>
+    <form [formGroup]="statusForm">
     <ion-row>
-      <ion-col size="12">
-    <ion-select placeholder="Status" class="border-box ">
-      <ion-select-option value="apples">Follow Up</ion-select-option>
-      <ion-select-option value="oranges">Oranges</ion-select-option>
-      <ion-select-option value="bananas">Bananas</ion-select-option>
+  <ion-col size="12">
+    <ion-select 
+      placeholder="Status" 
+      class="border-box" 
+      formControlName="selectedStatus" 
+      (ionChange)="onStatusChange($event)"
+    >
+      <ion-select-option value="converted">Converted</ion-select-option>
+      <ion-select-option value="contacted">Contacted</ion-select-option>
+      <ion-select-option value="followup">Follow Up</ion-select-option>
+      <ion-select-option value="incomplete">Incomplete</ion-select-option>
+      <ion-select-option value="lost">Lost</ion-select-option>
+      <ion-select-option value="new">New</ion-select-option>
     </ion-select>
+  </ion-col>
+
+  <!-- <div > -->
+    <!-- Date Field -->
+     <ion-col size="6" *ngIf="statusForm.get('selectedStatus')?.value === 'followup'">
+      <ion-item lines="none" class="border-box">
+        <ion-icon name="calendar-outline" slot="start"></ion-icon>
+        <ion-input
+          readonly
+          id="fromdate"
+          placeholder="Pick Start Date"
+          [value]="statusForm.value.followupDate | date:'dd-MM-yyyy'"
+        ></ion-input>
+       <ion-popover
+  trigger="fromdate"
+  cssClass="center-date-popover">
+  <ng-template>
+    <ion-datetime
+      presentation="date"
+      (ionChange)="onDateChange($event)">
+    </ion-datetime>
+  </ng-template>
+</ion-popover>
+      </ion-item>
     </ion-col>
-    </ion-row>
+
+     <!-- Time Field  -->
+    <ion-col size="6" *ngIf="statusForm.get('selectedStatus')?.value === 'followup'">
+  <ion-item lines="none" class="border-box">
+     <ion-icon name="calendar-outline" slot="start"></ion-icon>
+   <ion-input readonly id="time" placeholder="Pick Time" [value]="statusForm.value.followupTime"></ion-input>
+   <ion-popover
+  trigger="time"
+  cssClass="center-date-popover"
+>
+<ng-template>
+<ion-datetime
+      presentation="time"
+      hour-cycle="h12"
+      (ionChange)="onTimeChange($event)"
+    ></ion-datetime>
+</ng-template>
+</ion-popover>
+
+  </ion-item>
+</ion-col>
+
+     <ion-col size="6" *ngIf="statusForm.get('selectedStatus')?.value === 'converted'">
+      <ion-item lines="none" class="border-box">
+        <ion-input tyoe="number" placeholder="Earning i.e. 100000" formControlName="earning" ></ion-input>
+      </ion-item>
+    </ion-col>
+
+     <ion-col size="6" *ngIf="statusForm.get('selectedStatus')?.value === 'contacted'">
+      <ion-select class="border-box" placeholder="Phone/Physical" formControlName="contactMode">
+        <ion-select-option value="phone">Phone</ion-select-option>
+        <ion-select-option value="physical">Physical</ion-select-option>
+      </ion-select>
+    </ion-col>
+     <ion-col size="6" *ngIf="statusForm.get('selectedStatus')?.value === 'contacted'">
+        <ion-button [disabled]="statusForm.get('contactMode')?.value  !== 'physical'" (click)="openActionSheet()">Upload Photo</ion-button>
+    </ion-col>
+  <!-- </div> -->
+</ion-row>
     <ion-row class="d-flex ion-align-items-center">
-      <ion-col size="10">
+      <ion-col size="11">
         <ion-item lines="none" class="border-box">
-         <ion-icon slot="start" name="bookmark-outline"></ion-icon>
-        <ion-label
+         <ion-icon slot="start" name="bookmark-outline" *ngIf="!statusForm.get('remark')?.value"></ion-icon>
+        <ion-textarea
           autoGrow="true"
-        >Remark</ion-label></ion-item>
+          placeholder="Remark"
+          formControlName="remark"
+           style="min-height: 20px !important; height: 30px !important;"
+        ></ion-textarea></ion-item>
       </ion-col>
       
-      <ion-col size="2" class="ion-text-center">
-       <ion-icon name="mic-outline"></ion-icon>
+      <ion-col size="1" class="ion-text-center">
+       <ion-icon size="medium" name="mic-outline"></ion-icon>
       </ion-col>
     </ion-row>
+    </form>
   </ion-grid>
  
   <ion-button expand="block" class="ion-padding-start ion-padding-end">Submit</ion-button>

@@ -5,3 +5,11 @@
   width: 100%;
   text-align: center;
 }
+.center-date-popover::part(content) {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  border-radius: 12px;
+}
+
