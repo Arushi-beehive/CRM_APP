@@ -3,16 +3,17 @@ import { Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login-page',
-  templateUrl: './login-page.page.html',
-  styleUrls: ['./login-page.page.scss'],
+  selector: 'app-new-number',
+  templateUrl: './new-number.page.html',
+  styleUrls: ['./new-number.page.scss'],
 })
-export class LoginPagePage implements OnInit {
+export class NewNumberPage implements OnInit {
   public crmLogo='assets/icon/Logo_only.png';
   public companyUrl = 'assets/icon/beehivelogo.png';
 ngOnInit() {
   
 }
+constructor(private fb: FormBuilder,private route : Router) {}
  loginForm = this.fb.group({
   country_code: ['',[Validators.required, Validators.pattern(/^\+\d{1,4}$/)]],
     mobileNumber: ['',
@@ -22,8 +23,6 @@ ngOnInit() {
       ],
     ],
   });
-
-  constructor(private fb: FormBuilder,private route : Router) {}
 
   // Getter for easy access in HTML
   get mobileNumber() {

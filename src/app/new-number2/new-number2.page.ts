@@ -3,12 +3,12 @@ import { Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login-page',
-  templateUrl: './login-page.page.html',
-  styleUrls: ['./login-page.page.scss'],
+  selector: 'app-new-number2',
+  templateUrl: './new-number2.page.html',
+  styleUrls: ['./new-number2.page.scss'],
 })
-export class LoginPagePage implements OnInit {
-  public crmLogo='assets/icon/Logo_only.png';
+export class NewNumber2Page implements OnInit {
+ public crmLogo='assets/icon/Logo_only.png';
   public companyUrl = 'assets/icon/beehivelogo.png';
 ngOnInit() {
   

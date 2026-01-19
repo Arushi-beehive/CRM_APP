@@ -61,6 +61,30 @@ const routes: Routes = [
     path: 'lead-log',
     loadChildren: () => import('./lead-log/lead-log.module').then( m => m.LeadLogPageModule)
   },
+  {
+    path: 'new-number',
+    loadChildren: () => import('./new-number/new-number.module').then( m => m.NewNumberPageModule)
+  },
+  {
+    path: 'new-number2',
+    loadChildren: () => import('./new-number2/new-number2.module').then( m => m.NewNumber2PageModule)
+  },
+  {
+    path: 'application-link',
+    loadChildren: () => import('./application-link/application-link.module').then( m => m.ApplicationLinkPageModule)
+  },
+  {
+    path: 'referral',
+    loadChildren: () => import('./referral/referral.module').then( m => m.ReferralPageModule)
+  },
+  {
+    path: 'help-log',
+    loadChildren: () => import('./help-log/help-log.module').then( m => m.HelpLogPageModule)
+  },
+  {
+    path: 'need-help',
+    loadChildren: () => import('./need-help/need-help.module').then( m => m.NeedHelpPageModule)
+  },
 
 
 

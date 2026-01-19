@@ -1,0 +1,43 @@
+<ion-toolbar color="primary" class="shadow-sm rounded-bottom">
+  <ion-grid>
+    <ion-row class="ion-align-items-center ion-justify-content-between">
+      <ion-col size="auto">
+        <div class="d-flex ion-align-items-center ion-justify-content-start">
+          <!-- <ion-img src="assets/Logo_only.png" alt="Logo" class="logo-sm" > -->
+          <ion-title size="small"> Hi Chittaranjan! </ion-title>
+        </div>
+      </ion-col>
+
+      <ion-col size="auto">
+        <ion-buttons>
+          <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-toolbar>
+<ion-content class="ion-padding">
+        <ion-item lines="none" class="ion-margin-bottom">
+        <ion-icon name="chevron-back-outline" slot="start" size="small"></ion-icon>
+        <ion-text size="large">Raise Query?</ion-text>
+        </ion-item>
+     <ion-select placeholder="Category" class="border-box ion-margin-bottom">
+      <ion-select-option value="category1">Category 1</ion-select-option>
+      <ion-select-option value="category2">Category 2</ion-select-option>
+     </ion-select>
+
+     <ion-select placeholder="Sub Category" class="border-box ion-margin-bottom">
+<ion-select-option value="subcategory1">Sub Category 1</ion-select-option>
+<ion-select-option value="subcategory2">Sub Category 2</ion-select-option>
+     </ion-select>
+
+     <ion-item lines="none" class="border-box ion-margin-bottom">
+      <ion-textarea placeholder="Description"></ion-textarea>
+     </ion-item>
+     <ion-item lines="none" class="ion-margin-bottom ion-no-padding ion-align-items-center">
+      <ion-textarea placeholder="Attachment" class="border-box ion-padding"></ion-textarea>
+      <ion-icon name="download-outline"></ion-icon>
+     </ion-item>
+
+     <ion-button type="button" expand="block">Submit</ion-button>
+      </ion-content>
